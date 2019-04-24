@@ -17,3 +17,12 @@ export const fetchMenu = () => {
     })
     .catch(err => console.error(err));
 };
+
+export const sendData = data => {
+  return instance
+    .post(ENDPOINT.FORM, data)
+    .then(res => {
+      return res;
+    })
+    .catch(err => console.error(err));
+};

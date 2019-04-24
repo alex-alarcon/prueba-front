@@ -1,0 +1,22 @@
+.Form__container {
+  max-width: 500px;
+  margin: 0 auto;
+  display: block;
+  padding: 16px;
+  border: 1px solid black;
+}
+
+.Form__input {
+  display: block;
+  border: none;
+  border-bottom: 1px solid;
+  padding: 4px;
+  outline: none;
+  width: 100%;
+}
+
+.Form__button {
+  display: block;
+  padding: 8px;
+  margin: 0 auto;
+}
