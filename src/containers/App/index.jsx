@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 import './index.css';
 
 import { fetchMenu } from '../../services/api';
@@ -25,10 +26,16 @@ class App extends Component {
     const { isLoading, menu } = this.state;
 
     return (
-      <div className="App">
-        {isLoading && loader}
-        <Header links={menu} loadMenu={this.loadMenu} />
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          {isLoading && loader}
+          <Header links={menu} loadMenu={this.loadMenu} />
+        </div>
+        <Route
+          path="/:plane"
+          component={({ match }) => <p>{match.params.plane}</p>}
+        />
+      </BrowserRouter>
     );
   }
 }

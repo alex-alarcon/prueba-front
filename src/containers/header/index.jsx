@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
+import { Link } from 'react-router-dom';
 
 import './index.css';
 
@@ -37,9 +38,9 @@ class Header extends Component {
         </div>
         <nav className={navItemClasses}>
           {links.map(link => (
-            <a href={link.name} className="Navbar__link" key={link.id}>
+            <Link to={link.name} className="Navbar__link" key={link.id}>
               {link.name}
-            </a>
+            </Link>
           ))}
         </nav>
       </header>
