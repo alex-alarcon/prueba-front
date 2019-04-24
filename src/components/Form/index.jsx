@@ -76,7 +76,7 @@ class Form extends Component {
     const { plane } = this.props;
     return (
       <div className="Form__container">
-        <h3>
+        <h3 className="Form__title">
           {`Hola, bienvenido, sabemos que quieres viajar en un ${plane}, por favor diligencia el siguiente formulario`}
         </h3>
         <form className="Form">
