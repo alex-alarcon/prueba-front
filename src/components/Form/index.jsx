@@ -63,7 +63,7 @@ class Form extends Component {
       console.log(`La edad no esta en el rango`);
       return false;
     }
-    values.edad = parseInt(values.edad);
+    values.edad = parseInt(values.edad, 10);
     onSubmit(values);
     return true;
   };
