@@ -13,7 +13,6 @@ export const fetchMenu = () => {
   return instance
     .get(ENDPOINT.MENU)
     .then(res => {
-      console.log(res);
       return res.data;
     })
     .catch(err => console.error(err));
