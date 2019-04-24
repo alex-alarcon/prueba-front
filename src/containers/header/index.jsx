@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import classnames from 'classnames';
 import { Link } from 'react-router-dom';
+import classnames from 'classnames';
+import PropTypes from 'prop-types';
 
 import './index.css';
 
@@ -15,8 +16,9 @@ class Header extends Component {
   }
 
   handleToggleNav = () => {
+    const { isNavbarHidden } = this.state;
     this.setState({
-      isNavbarHidden: !this.state.isNavbarHidden
+      isNavbarHidden: !isNavbarHidden
     });
   };
 
@@ -47,5 +49,10 @@ class Header extends Component {
     );
   }
 }
+
+Header.propTypes = {
+  loadMenu: PropTypes.func.isRequired,
+  links: PropTypes.arrayOf(PropTypes.object).isRequired
+};
 
 export default Header;

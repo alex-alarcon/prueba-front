@@ -1,4 +1,7 @@
+/* eslint-disable no-console */
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import './index.css';
 
 const isEmpty = data => {
@@ -6,7 +9,7 @@ const isEmpty = data => {
 };
 
 const isValidEmail = email => {
-  const regexp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  const regexp = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(.\w{2,3})+$/;
   const isValid = regexp.test(email);
 
   return isValid;
@@ -25,9 +28,10 @@ class Form extends Component {
   };
 
   handleChange = event => {
+    const { values } = this.state;
     this.setState({
       values: {
-        ...this.state.values,
+        ...values,
         [event.target.name]: event.target.value
       }
     });
@@ -73,8 +77,7 @@ class Form extends Component {
     return (
       <div className="Form__container">
         <h3>
-          Hola, bienvenido, sabemos que quieres viajar en un
-          {` ${plane}`}, por favor diligencia el siguiente formulario
+          {`Hola, bienvenido, sabemos que quieres viajar en un ${plane}, por favor diligencia el siguiente formulario`}
         </h3>
         <form className="Form">
           <input
@@ -125,4 +128,8 @@ class Form extends Component {
   }
 }
 
+Form.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  plane: PropTypes.string.isRequired
+};
 export default Form;

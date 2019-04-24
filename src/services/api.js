@@ -15,7 +15,7 @@ export const fetchMenu = () => {
     .then(res => {
       return res.data;
     })
-    .catch(err => console.error(err));
+    .catch(err => {});
 };
 
 export const sendData = data => {
@@ -24,5 +24,5 @@ export const sendData = data => {
     .then(res => {
       return res;
     })
-    .catch(err => console.error(err));
+    .catch(err => {});
 };

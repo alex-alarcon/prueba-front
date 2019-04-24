@@ -23,7 +23,7 @@ class App extends Component {
   };
 
   handleSubmit = data => {
-    sendData(data).then(() => console.log('OK'));
+    sendData(data).then(() => {});
   };
 
   render() {
