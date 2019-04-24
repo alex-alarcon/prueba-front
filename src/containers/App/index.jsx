@@ -6,11 +6,15 @@ import { fetchMenu, sendData } from '../../services/api';
 
 import Header from '../header';
 import Form from '../../components/Form';
+import LightBox from '../../components/LightBox';
 
 class App extends Component {
   state = {
     isLoading: true,
-    menu: []
+    menu: [],
+    lightBox: {
+      isVisible: false
+    }
   };
 
   loadMenu = () => {
@@ -23,18 +27,36 @@ class App extends Component {
   };
 
   handleSubmit = data => {
-    sendData(data).then(() => {});
+    sendData(data)
+      .then(() => this.toggleLightBox())
+      .then(() => setTimeout(this.toggleLightBox, 5000));
+  };
+
+  toggleLightBox = () => {
+    const {
+      lightBox: { isVisible }
+    } = this.state;
+    this.setState({
+      lightBox: {
+        isVisible: !isVisible
+      }
+    });
   };
 
   render() {
     const loader = <p>Loading...</p>;
-    const { isLoading, menu } = this.state;
+    const {
+      isLoading,
+      menu,
+      lightBox: { isVisible }
+    } = this.state;
 
     return (
       <BrowserRouter>
         <div className="App">
           {isLoading && loader}
           <Header links={menu} loadMenu={this.loadMenu} />
+          {isVisible && <LightBox />}
         </div>
         <Route
           path="/:plane"
