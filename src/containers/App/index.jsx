@@ -35,11 +35,12 @@ class App extends Component {
         <div className="App">
           {isLoading && loader}
           <Header links={menu} loadMenu={this.loadMenu} />
-          <Form onSubmit={this.handleSubmit} />
         </div>
         <Route
           path="/:plane"
-          component={({ match }) => <p>{match.params.plane}</p>}
+          component={({ match }) => (
+            <Form onSubmit={this.handleSubmit} plane={match.params.plane} />
+          )}
         />
       </BrowserRouter>
     );
